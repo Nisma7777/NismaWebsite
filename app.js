@@ -237,6 +237,21 @@ function showModal(modalId, title, body, videoUrl) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture ; fullscreen">
         </iframe>
       </div>`;
+
+
+    // If an itch.io embed URL is provided, embed it (AFTER description / video)
+  if (itchEmbedUrl) {
+    modalBodyContent += `
+      <div class="itch-embed mt-4">
+        <iframe
+          frameborder="0"
+          src="${itchEmbedUrl}"
+          width="550"
+          height="165"
+          style="max-width:100%; width:100%;"
+          loading="lazy">
+        </iframe>
+      </div>`;
   }
 
   modalTemplate.querySelector('.modal-body').innerHTML = modalBodyContent;
@@ -256,6 +271,7 @@ function showModal(modalId, title, body, videoUrl) {
 
 
 PageTransitions();
+
 
 
 
